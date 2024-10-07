@@ -15,7 +15,7 @@ Terminated Shell – TUI bash script crafted for persistence after exploitation 
 
 ### [ DISCLAIMER ]
 
-**This script is intended solely for `EDUCATIONAL PURPOSES!`** 
+**This script is intended solely for `EDUCATIONAL PURPOSES!`**
 
 The script **author** and **contributors** do not encourage or endorse any illegal activities, and the use of this script for illegal purposes is prohibited. are not responsible for any misuse or damage caused by its use. Users should comply with the laws of their country and use this script with respect to ethical norms and laws.
 
@@ -54,6 +54,7 @@ All functions are stored in `functions/`.
 **Function `MANAGE_USERS`:** Provides options to view all users, add a user, or delete a user.
 
 **Function `HOOKS`:** Provides options for `git hooks` and `apt-get hooks`.
+
 - For `git` hooks, it allows the user to choose a repository and add a custom payload to the `pre-commit` hook or the git config file.
 - For `apt-get` hooks, it allows the user to add a custom payload to the `pre-invoke` command.
 
@@ -65,7 +66,7 @@ All functions are stored in `functions/`.
 
 ### [ TESTED ON ]
 
-- ParrotOS 6.1 
+- ParrotOS 6.1
 - Ubuntu 24.04 LTS
 - Debian 11
 - Kali 2023.4
