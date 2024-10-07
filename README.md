@@ -1,7 +1,7 @@
 
 ### [ TERMINATED SHELL ]
 
-<video src="https://github.com/oxb1te/terminatedshell/assets/109206637/83813d8d-de32-4e36-920e-63b97038fbac"></video>
+[preview.webm](https://github.com/user-attachments/assets/e9fa496b-3746-42a7-b03a-df5b8b25e817)
 
 <p align="center">
   <img alt="License" src="https://img.shields.io/github/license/oxb1te/terminatedshell?color=000000"/>
@@ -21,7 +21,7 @@ The script **author** and **contributors** do not encourage or endorse any illeg
 
 ### [ PROJECT STRUCTURE ]
 
-```
+```text
 .
 │── .github/
 │   ├── workflows/
@@ -75,7 +75,7 @@ All functions are stored in `functions/`.
 
 Before starting, ensure you have the necessary tools/packages are installed or install them based on what function are you going to use on target machine:
 
-```
+```text
 systemd
 cron
 shred

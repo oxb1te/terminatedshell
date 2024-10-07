@@ -46,7 +46,7 @@ compile_func() {
 # --- MAIN ---
 echo "----------------------------------------------------"
 echo -e "\t TerminatedShell compiler"
-echo -e "https://github.com/anonimidin/terminatedshell"
+echo -e "https://github.com/oxb1te/terminatedshell"
 echo "----------------------------------------------------"
 check_deps
 parse_args "$@"
