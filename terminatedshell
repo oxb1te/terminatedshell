@@ -42,11 +42,8 @@ text_banner="
  ${RED} \___)=(___/${EOC} "
 
 options="
-<<<<<<< HEAD
 \t\t${RED}[ - FUNCTIONS - ]${EOC}
-=======
 \t\t${RED}[ - MAIN FUNCTIONS - ]${EOC}
->>>>>>> refs/remotes/origin/main
 \t${RED}$(line)${EOC}
 \t${RED}[1]${EOC} ${BOLD}- Manage Users [view|add|delete]                      ${EOC}
 \t$(line)
@@ -103,7 +100,7 @@ download_func(){
     local f_file=functions/$f_name;
     if [[ ! -f "$f_file" ]]; then
         echo -e "${RED}[!]${EOC} Function ${BOLD}$f_file${EOC} not found locally. Downloading..."
-        if ! curl -fsSL "https://raw.githubusercontent.com/anonimidin/terminatedshell/main/functions/$f_name" -o "$f_file"; 
+        if ! curl -fsSL "https://raw.githubusercontent.com/oxb1te/terminatedshell/main/functions/$f_name" -o "$f_file"; 
         then
             echo -e "${RED}[x]${EOC} Failed to download ${BOLD}$f_file${EOC}."
             return 0
@@ -184,7 +181,7 @@ logs_func(){
 
 closing(){ 
     echo -e "\n\n${RED}[+]${EOC} Closing program..." && \
-    echo -e "\n${RED}[!]${EOC} ${BOLD}Don't forget to check git repo${EOC} (${RED}https://github.com/anonimidin/terminatedshell${EOC})" && \
+    echo -e "\n${RED}[!]${EOC} ${BOLD}Don't forget to check git repo${EOC} (${RED}https://github.com/oxb1te/terminatedshell${EOC})" && \
     sleep 0.3 && exit 0;
 }
 trap closing SIGINT SIGTSTP
@@ -217,7 +214,7 @@ read -rp $'\033[0;91m[*] [TERMINATED_SHELL] >\e[0m ' choice
 
     0 | [Qq] | [Qq][Uu][Ii][Tt] | [Ee][Xx][Ii][Tt]) # --- About repo & exit ---
         sleep 0.5
-        echo -e "${RED}[!]${EOC} ${RED}Help us to improve this script (https://github.com/anonimidin/terminatedshell)${EOC}\n" ;;
+        echo -e "${RED}[!]${EOC} ${RED}Help us to improve this script (https://github.com/oxb1te/terminatedshell)${EOC}\n" ;;
 
     "?" | [Hh] | [Hh][Ee][Ll][Pp]) # --- Show option based menu ---
         sleep 0.5 && echo -e "$options" && menu;;
